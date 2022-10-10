@@ -34,9 +34,7 @@ app.post('/todo', (req, res) => { // post krdeta hai
         if (!err) {
             console.log(saved);
 
-            res.send({
-                message: "your todo is saved"
-            })
+          
         } else {
             res.status(500).send({
                 message: "server error"
@@ -60,9 +58,9 @@ app.get('/todos', (req, res) => {  //simply jo data hota hai usko as it is bhej 
         }
     });
 })
-app.delete('/del', (req, res) => {
+app.delete('/todos', (req, res) => {
     
-    todoModel.deleteMany({}, (err, data) => {
+    mongoose.connection.db.dropCollection('todos',function(err,result){
         if (!err) {
             res.send({
                 message: "Your todo is deleted",

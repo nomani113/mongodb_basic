@@ -36,6 +36,7 @@ input[type=text] {
         <button type="submit">Add</button>
     </form>
     <button onclick="getAllTodos()">Refresh</button>
+    <button onclick="dltalltodos()">delete</button>
 
     <h3 id="result"> </h3>
 
@@ -62,6 +63,15 @@ input[type=text] {
                 })
 
         }
+        function dltalltodos(){
+            axios.delete(`https://odd-cyan-peacock-tux.cyclic.app/todos`)
+            .then(() =>{
+                console.log("all deleted from mongodb");
+                history.go(0)
+            })
+            .catch((err)=> console.log("error",err))
+        }
+
 
         function getAllTodos() {
             axios.get(`https://odd-cyan-peacock-tux.cyclic.app/todos`)
