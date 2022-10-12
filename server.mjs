@@ -58,21 +58,21 @@ app.get('/todos', (req, res) => {  //simply jo data hota hai usko as it is bhej 
         }
     });
 })
-app.delete('/todos', (req, res) => {
+// app.delete('/todos', (req, res) => {
     
-    mongoose.connection.db.dropCollection('todos',function(err,result){
-        if (!err) {
-            res.send({
-                message: "Your todo is deleted",
-                data: data
-            })
-        }else{
-            res.status(500).send({
-                message: "server error"
-            })
-        }
-    });
-})
+//     mongoose.connection.db.dropCollection('todos',function(err,result){
+//         if (!err) {
+//             res.send({
+//                 message: "Your todo is deleted",
+//                 data: data
+//             })
+//         }else{
+//             res.status(500).send({
+//                 message: "server error"
+//             })
+//         }
+//     });
+// })
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

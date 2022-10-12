@@ -11,7 +11,13 @@
 <style>
     body{
         text-align: center;
-        background-color: aquamarine;
+        background-color: rgb(52, 122, 137);
+    }
+    button{
+        width: 10%;
+        border-radius:  25px;
+        padding: 8px 12px;
+        margin: 5px 0;
     }
 input[type=text] {
         width: 20%;
@@ -32,11 +38,11 @@ input[type=text] {
     <h1>Todo App with server</h1>
 
     <form onsubmit="postTodo(); return false">
-        todo: <input id="todo" type="text" required>
+        TODO:<br> <input id="todo" type="text" required><br>
         <button type="submit">Add</button>
     </form>
     <button onclick="getAllTodos()">Refresh</button>
-    <button onclick="dltalltodos()">delete</button>
+    <!-- <button onclick="dltalltodos()">delete</button> -->
 
     <h3 id="result"> </h3>
 
@@ -50,7 +56,7 @@ input[type=text] {
                 .then(function (response) {
                     console.log(response.data);
 
-                    document.querySelector("#result").innerHTML = response.data.message
+                    // document.querySelector("#result").innerHTML = response.data.message
 
                     // response.data.data.map(eachTodo => {
                     //     document.querySelector("#result").innerHTML += eachTodo
@@ -63,14 +69,14 @@ input[type=text] {
                 })
 
         }
-        function dltalltodos(){
-            axios.delete(`https://odd-cyan-peacock-tux.cyclic.app/todos`)
-            .then(() =>{
-                console.log("all deleted from mongodb");
-                history.go(0)
-            })
-            .catch((err)=> console.log("error",err))
-        }
+        // function dltalltodos(){
+        //     axios.delete(`https://odd-cyan-peacock-tux.cyclic.app/todos`)
+        //     .then(() =>{
+        //         console.log("all deleted from mongodb");
+        //         history.go(0)
+        //     })
+        //     .catch((err)=> console.log("error",err))
+        // }
 
 
         function getAllTodos() {
